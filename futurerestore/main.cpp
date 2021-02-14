@@ -71,17 +71,17 @@ void cmd_help(){
     printf("  -e, --exit-recovery\t\tExit recovery mode and quit\n");
     
 #ifdef HAVE_LIBIPATCHER
-    printf("\nOptions for downgrading with Odysseus:\n");
+    printf("\nCác tùy chọn để hạ cấp với Odysseus:\n");
     printf("      --use-pwndfu\t\tRestoring devices with Odysseus method. Device needs to be in pwned DFU mode already\n");
     printf("      --just-boot=\"-v\"\t\tTethered booting the device from pwned DFU mode. You can optionally set boot-args\n");
 #endif
         
-    printf("\nOptions for SEP:\n");
+    printf("\nTùy chọn cho SEP:\n");
     printf("      --latest-sep\t\tUse latest signed SEP instead of manually specifying one (may cause bad restore)\n");
     printf("  -s, --sep PATH\t\tSEP to be flashed\n");
     printf("  -m, --sep-manifest PATH\tBuildManifest for requesting SEP ticket\n");
         
-    printf("\nOptions for baseband:\n");
+    printf("\nTùy chọn cho baseband:\n");
     printf("      --latest-baseband\t\tUse latest signed baseband instead of manually specifying one (may cause bad restore)\n");
     printf("  -b, --baseband PATH\t\tBaseband to be flashed\n");
     printf("  -p, --baseband-manifest PATH\tBuildManifest for requesting baseband ticket\n");
