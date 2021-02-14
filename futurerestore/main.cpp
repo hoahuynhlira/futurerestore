@@ -60,9 +60,9 @@ static struct option longopts[] = {
 #define FLAG_IS_PWN_DFU         1 << 5
 
 void cmd_help(){
-    printf("Usage: futurerestore [OPTIONS] iPSW\n");
-    printf("Allows restoring to non-matching firmware with custom SEP+baseband\n");
-    printf("\nGeneral options:\n");
+    printf("Cách sử dụng: futurerestore [OPTIONS] iPSW\n");
+    printf("Cho phép khôi phục về chương trình cơ sở không phù hợp với SEP + baseband tùy chỉnh\n");
+    printf("\nCác tùy chọn chung:\n");
     printf("  -t, --apticket PATH\t\tSigning tickets used for restoring\n");
     printf("  -u, --update\t\t\tUpdate instead of erase install (requires appropriate APTicket)\n");
     printf("              \t\t\tDO NOT use this parameter, if you update from jailbroken firmware!\n");
@@ -100,7 +100,9 @@ using namespace std;
 using namespace tihmstar;
 int main_r(int argc, const char * argv[]) {
     int err=0;
-    printf("Version: " VERSION_COMMIT_SHA " - " VERSION_COMMIT_COUNT "\n");
+    printf("Futurerestore/Hạ cấp iOS);
+    printf("for iOS 12.0 - 14.x");
+    printf("Version: " VERSION_COMMIT_COUNT "\n");
     printf("%s\n",tihmstar::img4tool::version());
 #ifdef HAVE_LIBIPATCHER
     printf("%s\n",libipatcher::version());
@@ -208,9 +210,9 @@ int main_r(int argc, const char * argv[]) {
     }
     
     futurerestore client(flags & FLAG_UPDATE, flags & FLAG_IS_PWN_DFU);
-    retassure(client.init(),"can't init, no device found\n");
+    retassure(client.init(),"không thể init, không tìm thấy thiết bị\n");
     
-    printf("futurerestore init done\n");
+    printf("futurerestore init xong\n");
     retassure(!bootargs || (flags & FLAG_IS_PWN_DFU),"--just-boot requires --use-pwndfu\n");
     
     if (exitRecovery) {
@@ -230,13 +232,13 @@ int main_r(int argc, const char * argv[]) {
             )) {
             
             if (!(flags & FLAG_WAIT) || ipsw){
-                error("missing argument\n");
+                error("thiếu đối số\n");
                 cmd_help();
                 err = -2;
             }else{
                 client.putDeviceIntoRecovery();
                 client.waitForNonce();
-                info("Done\n");
+                info("Xong\n");
             }
             goto error;
         }
@@ -304,7 +306,7 @@ int main_r(int argc, const char * argv[]) {
             client.doJustBoot(ipsw,bootargs);
         else
             client.doRestore(ipsw);
-        printf("Done: restoring succeeded!\n");
+        printf("DXong: khôi phục thành công!n");
     } catch (tihmstar::exception &e) {
         e.dump();
         printf("Done: restoring failed!\n");
